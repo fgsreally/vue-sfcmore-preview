@@ -2,12 +2,12 @@
 import { Pane, Splitpanes } from 'splitpanes'
 import { computed, reactive, ref } from 'vue'
 import 'splitpanes/dist/splitpanes.css'
-import CompTree from '../components/CompTree.vue'
-import PropsPane from '../components/PropsPane.vue'
-import IframeCanvas from '../components/IframeCanvas.vue'
-import { createTableData, metaToPropsValue } from '../helper/vueTypeMeta'
-import { store } from '../helper/store'
-import type { StoryComponent, StoryConfig } from '../types'
+import CompTree from './components/CompTree.vue'
+import PropsPane from './components/PropsPane.vue'
+import IframeCanvas from './components/IframeCanvas.vue'
+import { createTableData, metaToPropsValue } from './helper/vueTypeMeta'
+import { store } from './helper/store'
+import type { StoryComponent, StoryConfig } from './types'
 defineProps<StoryConfig>()
 const url = reactive({
   js: '',
@@ -53,4 +53,3 @@ async function update(info: StoryComponent) {
   {{ propsData }}
 </template>
 
-<style scoped></style>

@@ -1,6 +1,11 @@
 <script setup lang="ts">
-import Story from './layouts/default.vue'
+import PreviewProd from '../src/PreviewProd.vue'
+import PreviewDev from '../src/PreviewDev.vue'
+import { ref } from 'vue'
+
+const isDev = ref(true)
 const importmap = { vue: 'https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.47/vue.esm-browser.min.js' }
+const url='/example/HelloWorld.vue'
 const projects = [
   {
     id: '测试项目',
@@ -20,9 +25,8 @@ const projects = [
 </script>
 
 <template>
-  <Story :importmap="importmap" :projects="projects" />
+  <button @clikc="isDev = !isDev">change mode</button>
+    <PreviewDev v-if="isDev" :url="url"></PreviewDev>
+    <PreviewProd v-else :importmap="importmap" :projects="projects" />
 </template>
 
-<style>
-
-</style>

@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import { computed, ref, watch } from 'vue'
 import { componentMap } from '../helper/componentMap'
-import { createTableData, metaToPropsValue, updateItemTypeMeta } from '../helper/vueTypeMeta'
+import { updateItemTypeMeta } from '../helper/vueTypeMeta'
 const props = defineProps<{ meta?: any }>()
+console.log(props)
 </script>
 
 <template>
