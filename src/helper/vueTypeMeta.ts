@@ -49,6 +49,7 @@ export function updateItemValue(item: any) {
 }
 
 export function metaToPropsValue(obj: any, meta: any[]) {
+  if (!Array.isArray(meta)) return
   for (const item of meta) {
     obj[item.name] = item.value
     metaToPropsValue(obj[item.name], item.children)

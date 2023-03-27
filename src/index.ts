@@ -1,4 +1,4 @@
-import AliothStory from './layouts/default.vue'
-export default AliothStory
+export {default as PreviewDev} from './PreviewDev.vue'
+export {default as PreviewProd} from './PreviewProd.vue'
 
 

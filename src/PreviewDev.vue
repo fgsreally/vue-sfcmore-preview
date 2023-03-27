@@ -3,7 +3,7 @@ import { Pane, Splitpanes } from 'splitpanes'
 import { computed, ref } from 'vue'
 import 'splitpanes/dist/splitpanes.css'
 import PropsPane from './components/PropsPane.vue'
-import { metaToPropsValue } from './helper/vueTypeMeta'
+import { metaToPropsValue,createTableData } from './helper/vueTypeMeta'
 import NormalCanvas from './components/NormalCanvas.vue'
 const { url } = defineProps<{ url: string }>()
 
@@ -12,7 +12,7 @@ const metaProps = ref<any>(null)
 
 async function loadAddon() {
     const { metadata } = await import(url)
-    metaProps.value = metadata
+    metaProps.value =createTableData(metadata.props)
 }
 loadAddon()
 

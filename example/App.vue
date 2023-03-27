@@ -25,7 +25,7 @@ const projects = [
 </script>
 
 <template>
-  <button @clikc="isDev = !isDev">change mode</button>
+  <button @click="isDev = !isDev">change mode</button>
     <PreviewDev v-if="isDev" :url="url"></PreviewDev>
     <PreviewProd v-else :importmap="importmap" :projects="projects" />
 </template>

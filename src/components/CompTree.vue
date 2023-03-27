@@ -16,7 +16,7 @@ const handleNodeClick = (node: any) => {
 </script>
 
 <template>
-  <el-tree :data="projects" :props="defaultProps" $attrs @node-click="handleNodeClick" />
+  <el-tree :data="projects" :props="defaultProps"  @node-click="handleNodeClick" />
 </template>
 
 <style scoped></style>

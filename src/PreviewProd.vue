@@ -39,7 +39,7 @@ async function update(info: StoryComponent) {
 <template>
   <Splitpanes>
     <Pane min-size="20">
-      <CompTree :projects="projects" v-bind="$attrs.eltree" @update="update" />
+      <CompTree :projects="projects" @update="update" />
     </Pane>
     <Pane>
       <Splitpanes horizontal>

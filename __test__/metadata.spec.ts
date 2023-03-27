@@ -73,5 +73,6 @@ describe('test', () => {
       },
     }]
     const data = createTableData(test)
+    expect(data).toMatchSnapshot()
   })
 })

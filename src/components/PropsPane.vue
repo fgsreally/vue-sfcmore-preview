@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import { componentMap } from '../helper/componentMap'
 import { updateItemTypeMeta } from '../helper/vueTypeMeta'
+
 const props = defineProps<{ meta?: any }>()
-console.log(props)
 </script>
 
 <template>
@@ -30,7 +30,8 @@ console.log(props)
     </el-table-column>
     <el-table-column label="类型">
       <template #default="scope">
-        <el-select v-model="scope.row.currentType" @change="updateItemTypeMeta(scope.row)">
+        <p v-if="!Array.isArray(scope.row.type)">{{ scope.row.type }}</p>
+        <el-select v-else v-model="scope.row.currentType" @change="updateItemTypeMeta(scope.row)">
           <el-option v-for="(item, i) in scope.row.type" :key="i" :label="item?.type || item" :value="item" />
         </el-select>
       </template>

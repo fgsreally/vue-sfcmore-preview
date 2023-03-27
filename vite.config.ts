@@ -4,32 +4,35 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import AutoImport from 'unplugin-auto-import/vite'
 import VueMacros from 'unplugin-vue-macros/vite'
-
-export default defineConfig({
-  build: {
-    lib: {
-      entry: 'src/index.ts',
-      formats: ['es', 'cjs'],
-      fileName: '[name]',
-    },
-    emptyOutDir: false,
-  },
-  server: { port: 4100 },
-  plugins: [
-    VueMacros({
-      setupBlock: true,
-      plugins: {
-        vue: vue({
-          reactivityTransform: true,
-
-        }),
+import {sfc} from 'unplugin-vue-sfcmore/vite'
+export default defineConfig(({command})=>{
+  return {
+    build: {
+      lib: {
+        entry: 'src/index.ts',
+        formats: ['es', 'cjs'],
+        fileName: '[name]',
       },
-    }),
-    AutoImport({
-      resolvers: [ElementPlusResolver()],
-    }),
-    Components({
-      resolvers: [ElementPlusResolver()],
-    }),
-  ],
+      emptyOutDir: false,
+    },
+    server: { port: 4100 },
+    plugins: [
+      VueMacros({
+        setupBlock: true,
+        plugins: {
+          vue: vue({
+            reactivityTransform: true,
+  
+          }),
+        },
+      }),
+      AutoImport({
+        resolvers: [ElementPlusResolver()],
+      }),
+      Components({
+        resolvers: [ElementPlusResolver()],
+      }),
+      command==='serve'&&sfc()
+    ],
+  }
 })

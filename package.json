@@ -24,6 +24,7 @@
   },
   "devDependencies": {
     "@types/splitpanes": "^2.2.1",
+    "unplugin-vue-sfcmore": "^1.1.4",
     "@vitejs/plugin-vue": "^4.1.0",
     "unplugin-auto-import": "^0.15.1",
     "unplugin-vue-components": "^0.24.1",
